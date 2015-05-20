@@ -1,16 +1,15 @@
-<!-- Login screen -->
-<div id="login-form" ng-include="'templates/login.html">
-    <h1>Social Network</h1>
-    <p>
-        <label for="username">Username:</label>
-        <input type="text" id="username" />
-    </p>
-    <p>
-        <label for="password">Password:</label>
-        <input type="password" id="password" />
-    </p>
-    <p class="buttons">
-        <a href="#" class="button">Login</a> or
-        <a href="#/register" class="link"> Register</a>
-    <p>
+<div class="box">
+   <h2>Login</h2>
+   <p>
+       <label for="username">Username:</label>
+       <input type="text" id="username" ng-model="userData.username" required />
+   </p>
+   <p>
+       <label for="password">Password:</label>
+       <input type="password" id="password" ng-model="userData.password" required />
+   </p>
+   <p>
+       <a ng-click="login(userData)" class="button">Login</a>
+       <a href="#/register" class="link">Register</a>
+   <p>
 </div>

@@ -1,16 +1,25 @@
 "use strict";
 
-var SocialNetwork = angular.module("SocialNetwork", []);
+var app = angular.module('app', ['ngRoute', 'ngResource', 'ui.bootstrap.pagination']);
+app.constant('baseServiceUrl', 'http://softuni-ads.azurewebsites.net');
+app.constant('pageSize', 2);
 
-SocialNetwork.constant("baseUrl", "http://softuni-network.azurewebsites.net/api");
+app.config(function ($routeProvider) {
+//    $routeProvider.when('/', {
+//            templateUrl: 'templates/partial/index-home.html',
+//            controller: 'HomeController'
+//        });
 
-SocialNetwork.config(function ($routeProvider) {
-    $routeProvider
-        .when('/login', {
-            templateUrl:'templates/login.html',
-            controller:'MainController'
-        })
+    $routeProvider.when('/login', {
+            templateUrl: 'templates/login.html',
+            controller: 'LoginController'
+        });
 
-        .otherwise({redirectTo: '/'})
+    $routeProvider.when('/register', {
+            templateUrl: 'templates/register.html',
+            controller: 'RegisterController'
+        });
+
+    $routeProvider.otherwise({redirectTo: '/'})
 
 });
